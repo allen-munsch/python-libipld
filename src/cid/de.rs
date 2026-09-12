@@ -3,7 +3,10 @@ use pyo3::types::*;
 
 use crate::cid::extract_cid;
 
-fn hash_to_pydict<'py>(py: Python<'py>, cid: &::ipld_core::cid::Cid) -> PyResult<Bound<'py, PyDict>> {
+fn hash_to_pydict<'py>(
+    py: Python<'py>,
+    cid: &::ipld_core::cid::Cid,
+) -> PyResult<Bound<'py, PyDict>> {
     let hash = cid.hash();
     let dict_obj = PyDict::new(py);
 
